@@ -3,7 +3,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 import torch
 import torch.nn as nn
-import slangpy
+import slangtorch as slangpy
 import numpy as np
 import matplotlib.pyplot as plt
 
