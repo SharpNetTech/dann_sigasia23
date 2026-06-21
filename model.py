@@ -215,11 +215,17 @@ class DANN(torch.nn.Module):
     MLP_INP_DIM = FEATURE_DIM
 
     self.mlp = nn.Sequential(
-      nn.Linear(MLP_INP_DIM, 64),
-      nn.ReLU(),
-      nn.Linear(64, 64),
-      nn.ReLU(),
-      nn.Linear(64, OUT_DIM)
+      nn.Linear(MLP_INP_DIM, 256),
+      nn.Softplus(beta=100.0),
+      nn.Linear(256, 256),
+      nn.Softplus(beta=100.0),
+      nn.Linear(256, 256),
+      nn.Softplus(beta=100.0),
+      nn.Linear(256, 256),
+      nn.Softplus(beta=100.0),
+      nn.Linear(256, 256),
+      nn.Softplus(beta=100.0),
+      nn.Linear(256, OUT_DIM)
     ).cuda()
 
 
